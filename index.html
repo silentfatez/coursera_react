@@ -100,19 +100,19 @@
               </div>
             </div>
             <div class="form-group row">
-            <label class="col-md-2 col-form-label">Section</label>
-            <div class="col-md-4">
+              <label class="col-md-2 col-form-label">Section</label>
+              <div class="col-md-4">
 
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary active btn-success">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Non-Smoking
-              </label>
-              <label class="btn btn-secondary btn-danger">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Smoking
-              </label>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-secondary active btn-success">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Non-Smoking
+                  </label>
+                  <label class="btn btn-secondary btn-danger">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> Smoking
+                  </label>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
             <div class="form-group row">
               <label for="Datetime" class="col-md-2 col-form-label">Date and Time</label>
               <div class="col-8 col-md-4">
@@ -131,8 +131,8 @@
           </form>
         </div>
       </div>
-      </div>
     </div>
+  </div>
   </div>
 
 
@@ -147,7 +147,7 @@
         </div>
         <div class="col-12 col-sm-6 order-sm-last">
           <img src="img/logo.png" class="img-fluid">
-          <a role="button" class="btn btn-block nav-link btn-warning" data-toggle="modal" data-target="#reserveModal" >Reserve Table</a>
+          <a role="button" class="btn btn-block nav-link btn-warning" data-toggle="modal" data-target="#reserveModal">Reserve Table</a>
 
 
 
@@ -175,7 +175,7 @@
             <div class="carousel-item">
               <img class="d-block img-fluid" src="img/buffet.png" alt="Uthappizza">
               <div class="carousel-caption d-none d-md-block">
-                <h2 >Weekend Grand Buffet <span class="badge badge-danger">NEW</span></h2>
+                <h2>Weekend Grand Buffet <span class="badge badge-danger">NEW</span></h2>
                 <p class="d-none d-sm-block">Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99
                   per
                   person</p>
@@ -186,7 +186,7 @@
             <div class="carousel-item">
               <img class="d-block img-fluid" src="img/buffet.png" alt="Uthappizza">
               <div class="carousel-caption d-none d-md-block">
-                <h2 >Alberto Somayya</h2>
+                <h2>Alberto Somayya</h2>
                 <h4>Executive Chef</h4>
                 <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide
                   International experience having worked closely with
@@ -194,25 +194,25 @@
                   creating mouthwatering Indo-Italian fusion experiences.
                 </p>
               </div>
-
             </div>
-            <ol class="carousel-indicators">
-              <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#mycarousel" data-slide-to="1"></li>
-              <li data-target="#mycarousel" data-slide-to="2"></li>
-            </ol>
           </div>
         </div>
+        <ol class="carousel-indicators">
+          <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#mycarousel" data-slide-to="1"></li>
+          <li data-target="#mycarousel" data-slide-to="2"></li>
+        </ol>
         <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon"></span>
         </a>
         <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
           <span class="carousel-control-next-icon"></span>
         </a>
+        <button class="btn btn-danger btn-sm" id="carouselButton">
+            <span id="carousel-button-icon" class="fa fa-pause"></span>
+        </button>
       </div>
     </div>
-
-
     <div class="row">
       <ol class="col-12 breadcrumb">
         <li class="breadcrumb-item active">>Home</li>
@@ -322,7 +322,20 @@
   <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
   <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+  <script>
+  $("#carouselButton").click(function(){
+      if ($("#carouselButton").children("span").hasClass('fa-pause')) {
+          $("#mycarousel").carousel('pause');
+          $("#carouselButton").children("span").removeClass('fa-pause');
+          $("#carouselButton").children("span").addClass('fa-play');
+      }
+      else if ($("#carouselButton").children("span").hasClass('fa-play')){
+          $("#mycarousel").carousel('cycle');
+          $("#carouselButton").children("span").removeClass('fa-play');
+          $("#carouselButton").children("span").addClass('fa-pause');
+      }
+  });
+  </script>
 </body>
 
 </html>
